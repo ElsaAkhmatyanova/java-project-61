@@ -4,6 +4,10 @@ plugins {
     application
 }
 
+application {
+    mainClass = "hexlet.code.App"
+}
+
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
@@ -20,6 +24,6 @@ tasks.test {
     useJUnitPlatform()
 }
 
-application {
-    mainClass = "hexlet.code.App"
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
 }
