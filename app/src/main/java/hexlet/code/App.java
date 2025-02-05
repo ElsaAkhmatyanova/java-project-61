@@ -4,15 +4,17 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n0 - Exit\n");
-
         Scanner scanner = new Scanner(System.in);
+        int gameNumber = GamesSettings.choosingGame(scanner);
 
-        Cli.choosingGame(scanner);
         System.out.println("Welcome to the Brain Games!");
         String userName = Cli.gettingName(scanner);
 
-        EvenGame.determineEvenNumbers(scanner, userName);
+        switch (gameNumber) {
+            case 1: break;
+            case 2: EvenGame.determineEvenNumbers(scanner, userName);
+            default: break;
+        }
 
         scanner.close();
     }
