@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class GamesSettings {
     public static int choosingGame(Scanner scanner) {
-        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n0 - Exit\n");
+        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n0 - Exit");
         String userGameChoice = scanner.nextLine();
         int userGame = Integer.parseInt(userGameChoice);
 
@@ -19,7 +19,7 @@ public class GamesSettings {
         }
 
         if (isSelectedExistedGame) {
-            System.out.println("Your choice: " + userGameChoice);
+            System.out.println("Your choice: " + userGameChoice +"\n");
             return Integer.parseInt(userGameChoice);
         } else {
             System.out.println("No input provided!");
