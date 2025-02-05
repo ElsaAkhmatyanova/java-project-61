@@ -15,25 +15,21 @@ public class EvenGame {
         for (int i = 1; i < 4; i++) {
             numberForLevel = randomNumeric.nextInt(1000);
             System.out.println("Question: " + numberForLevel);
-            String userChoice = scanner.nextLine();
+            String userAnswer = scanner.nextLine();
 
             String correctAnswer = numberForLevel % 2 == 0 ? "yes" : "no";
-            boolean evenSuccessCondition = userChoice.equalsIgnoreCase("yes")
-                    && userChoice.equalsIgnoreCase(correctAnswer);
-            boolean oddSuccessCondition = userChoice.equalsIgnoreCase("no")
-                    && userChoice.equalsIgnoreCase(correctAnswer);
+            boolean evenSuccessCondition = userAnswer.equalsIgnoreCase("yes")
+                    && userAnswer.equalsIgnoreCase(correctAnswer);
+            boolean oddSuccessCondition = userAnswer.equalsIgnoreCase("no")
+                    && userAnswer.equalsIgnoreCase(correctAnswer);
 
             if (evenSuccessCondition || oddSuccessCondition) {
-                System.out.println("Correct!");
-                levelCounter += 1;
+                Engine.rightAnswerForLevel(levelCounter);
             } else {
-                System.out.println("'" + userChoice + "' is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'\nLet's try again, " + userName + "!");
+                Engine.errorMessageForUser(userAnswer, correctAnswer, userName);
                 break;
             }
         }
-        if (levelCounter == 3) {
-            System.out.println("Congratulations, " + userName + "!");
-        }
+        Engine.successfulGameMessage(userName, levelCounter);
     }
 }
