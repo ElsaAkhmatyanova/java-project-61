@@ -18,14 +18,17 @@ public class EvenGame {
             String userChoice = scanner.nextLine();
 
             String correctAnswer = numberForLevel % 2 == 0 ? "yes" : "no";
-            boolean evenSuccessCondition = userChoice.equalsIgnoreCase("yes") && userChoice.equalsIgnoreCase(correctAnswer);
-            boolean oddSuccessCondition = userChoice.equalsIgnoreCase("no") && userChoice.equalsIgnoreCase(correctAnswer);
+            boolean evenSuccessCondition = userChoice.equalsIgnoreCase("yes")
+                    && userChoice.equalsIgnoreCase(correctAnswer);
+            boolean oddSuccessCondition = userChoice.equalsIgnoreCase("no")
+                    && userChoice.equalsIgnoreCase(correctAnswer);
 
             if (evenSuccessCondition || oddSuccessCondition) {
                 System.out.println("Correct!");
                 levelCounter += 1;
             } else {
-                System.out.println("'" + userChoice + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'\nLet's try again, " + userName + "!");
+                System.out.println("'" + userChoice + "' is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'\nLet's try again, " + userName + "!");
                 break;
             }
         }
