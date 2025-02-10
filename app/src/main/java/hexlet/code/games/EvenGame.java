@@ -17,7 +17,7 @@ public class EvenGame {
         for (int i = 1; i < 4; i++) {
             numberForLevel = randomNumeric.nextInt(1000);
             System.out.println("Question: " + numberForLevel);
-            String userAnswer = scanner.nextLine();
+            String userAnswer = Engine.getGamerAnswer(scanner);
 
             String correctAnswer = numberForLevel % 2 == 0 ? "yes" : "no";
             boolean evenSuccessCondition = userAnswer.equalsIgnoreCase("yes")
@@ -26,7 +26,9 @@ public class EvenGame {
                     && userAnswer.equalsIgnoreCase(correctAnswer);
 
             if (evenSuccessCondition || oddSuccessCondition) {
-                Engine.rightAnswerForLevel(levelCounter);
+                Engine.rightAnswerForLevel();
+                levelCounter += 1;
+
             } else {
                 Engine.errorMessageForUser(userAnswer, correctAnswer, userName);
                 break;
