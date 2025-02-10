@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Engine {
     public static int choosingGame(Scanner scanner) {
         System.out.println("Please enter the game number and press Enter."
-                + "\n1 - Greet\n2 - Even\n3 - Calc\n0 - Exit");
+                + "\n1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n0 - Exit");
         System.out.print("Your choice: ");
         String userGameChoice = scanner.nextLine();
         int userGame = Integer.parseInt(userGameChoice);
 
-        int[] listOfGames = new int[]{1, 2, 3};
+        int[] listOfGames = new int[]{1, 2, 3, 4};
         boolean isSelectedExistedGame = false;
 
         for (int i : listOfGames) {
