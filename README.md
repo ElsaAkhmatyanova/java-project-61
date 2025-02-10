@@ -25,3 +25,13 @@
 Пример неуспешного прохождения игры:
 ![UnsuccessfulCalcGame.PNG](image/UnsuccessfulCalcGame.PNG)
 </details>
+
+<details>
+  <summary>4 - GCD. Игра: "НОД"</summary>
+
+Пример успешного прохождения игры:
+![SuccessfulGCDGame.PNG](image/SuccessfulGCDGame.PNG)
+
+Пример неуспешного прохождения игры:
+![UnsuccessfulGCDGame.PNG](image/UnsuccessfulGCDGame.PNG)
+</details>
