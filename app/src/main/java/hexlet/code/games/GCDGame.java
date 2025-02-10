@@ -17,7 +17,7 @@ public class GCDGame {
         for (int i = 1; i < 4; i++) {
             BigInteger firstNumber = BigInteger.valueOf(randomNumeric.nextInt(200));
             BigInteger secondNumber = BigInteger.valueOf(randomNumeric.nextInt(200));
-            correctAnswer = calculateGCDForNumbers(firstNumber,secondNumber);
+            correctAnswer = calculateGCDForNumbers(firstNumber, secondNumber);
 
             System.out.println("Question: " + firstNumber.intValue() + " " + secondNumber.intValue());
             String userAnswer = Engine.getGamerAnswer(scanner);
