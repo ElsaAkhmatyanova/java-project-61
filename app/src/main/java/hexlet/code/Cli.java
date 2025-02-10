@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Cli {
 
     public static String gettingName(Scanner scanner) {
-        System.out.println("May I have your name?");
+        System.out.print("May I have your name? ");
         String userName = scanner.nextLine();
         if (userName != null) {
             System.out.println("Hello, " + userName + "!");
