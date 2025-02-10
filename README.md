@@ -15,3 +15,13 @@
 Пример неуспешного прохождения игры:
 ![UnsuccessfulEvenGame.PNG](image/UnsuccessfulEvenGame.PNG)
 </details>
+
+<details>
+  <summary>3 - Calc. Игра: "Калькулятор"</summary>
+
+Пример успешного прохождения игры:
+![SuccessfulCalcGame.PNG](image/SuccessfulCalcGame.PNG)
+
+Пример неуспешного прохождения игры:
+![UnsuccessfulCalcGame.PNG](image/UnsuccessfulCalcGame.PNG)
+</details>
