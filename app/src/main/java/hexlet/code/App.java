@@ -10,14 +10,20 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         int gameNumber = Engine.choosingGame(scanner);
 
-        System.out.println("Welcome to the Brain Games!");
+        System.out.println("\nWelcome to the Brain Games!");
         String userName = Cli.gettingName(scanner);
 
         switch (gameNumber) {
-            case 1: break;
-            case 2: EvenGame.determineEvenNumbers(scanner, userName);
-            case 3: CalcGame.calcNumbers(scanner, userName);
-            default: break;
+            case 1:
+                break;
+            case 2:
+                EvenGame.determineEvenNumbers(scanner, userName);
+                break;
+            case 3:
+                CalcGame.calcNumbers(scanner, userName);
+                break;
+            default:
+                break;
         }
 
         scanner.close();
