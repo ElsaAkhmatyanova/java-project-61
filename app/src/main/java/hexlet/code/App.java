@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.CalcGame;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.GCDGame;
+import hexlet.code.games.ProgressionGame;
 
 import java.util.Scanner;
 
@@ -25,6 +26,9 @@ public class App {
                 break;
             case 4:
                 GCDGame.gcdForNumbers(scanner, userName);
+                break;
+            case 5:
+                ProgressionGame.improveProgression(scanner, userName);
                 break;
             default:
                 break;
