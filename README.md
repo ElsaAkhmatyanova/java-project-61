@@ -37,11 +37,21 @@
 </details>
 
 <details>
-  <summary>4 - Progression. Игра: "Арифметическая прогрессия"</summary>
+  <summary>5 - Progression. Игра: "Арифметическая прогрессия"</summary>
 
 Пример успешного прохождения игры:
 ![SuccessfulProgressionGame.PNG](image/SuccessfulProgressionGame.PNG)
 
 Пример неуспешного прохождения игры:
 ![UnsuccessfulProgressionGame.PNG](image/UnsuccessfulProgressionGame.PNG)
+</details>
+
+<details>
+  <summary>6 - Prime. Игра: "Простое ли число?"</summary>
+
+Пример успешного прохождения игры:
+![SuccessfulPrimeGame.PNG](image/SuccessfulPrimeGame.PNG)
+
+Пример неуспешного прохождения игры:
+![UnsuccessfulPrimeGame.PNG](image/UnsuccessfulPrimeGame.PNG)
 </details>
