@@ -30,8 +30,6 @@ public class Engine {
     }
 
     public static void runGame(String gameTask, String[][] gameData) {
-
-
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
