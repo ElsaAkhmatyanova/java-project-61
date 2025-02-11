@@ -21,37 +21,37 @@ public class App {
         String gameNumber = Engine.choosingGame();
 
         if (gameNumber != null) {
-        String[][] gameData = null;
-        String gameTask = null;
+            String[][] gameData;
+            String gameTask;
 
-        switch (gameNumber) {
-            case "1":
-                Cli.greet();
-                return;
-            case "2":
-                gameTask = EvenGame.EVEN_MAIN_QUESTION;
-                gameData = EvenGame.generateEvenGameData();
-                break;
-            case "3":
-                gameTask = CalcGame.CALC_MAIN_QUESTION;
-                gameData = CalcGame.generateCalcGameData();
-                break;
-            case "4":
-                gameTask = GCDGame.GCD_MAIN_QUESTION;
-                gameData = GCDGame.generateGCDGameData();
-                break;
-            case "5":
-                gameTask = ProgressionGame.PROGRESSION_MAIN_QUESTION;
-                gameData = ProgressionGame.generateProgressionGameData();
-                break;
-            case "6":
-                gameTask = PrimeGame.PRIME_MAIN_QUESTION;
-                gameData = PrimeGame.generatePrimeGameData();
-                break;
-            default:
-                return;
-        }
-        Engine.runGame(gameTask, gameData);
+            switch (gameNumber) {
+                case "1":
+                    Cli.greet();
+                    return;
+                case "2":
+                    gameTask = EvenGame.EVEN_MAIN_QUESTION;
+                    gameData = EvenGame.generateEvenGameData();
+                    break;
+                case "3":
+                    gameTask = CalcGame.CALC_MAIN_QUESTION;
+                    gameData = CalcGame.generateCalcGameData();
+                    break;
+                case "4":
+                    gameTask = GCDGame.GCD_MAIN_QUESTION;
+                    gameData = GCDGame.generateGCDGameData();
+                    break;
+                case "5":
+                    gameTask = ProgressionGame.PROGRESSION_MAIN_QUESTION;
+                    gameData = ProgressionGame.generateProgressionGameData();
+                    break;
+                case "6":
+                    gameTask = PrimeGame.PRIME_MAIN_QUESTION;
+                    gameData = PrimeGame.generatePrimeGameData();
+                    break;
+                default:
+                    return;
+            }
+            Engine.runGame(gameTask, gameData);
         }
     }
 }
