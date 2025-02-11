@@ -22,15 +22,12 @@ public class EvenGame {
             String userAnswer = Engine.getGamerAnswer(scanner);
 
             String correctAnswer = numberForLevel % 2 == 0 ? "yes" : "no";
-            boolean evenSuccessCondition = userAnswer.equalsIgnoreCase("yes")
-                    && userAnswer.equalsIgnoreCase(correctAnswer);
-            boolean oddSuccessCondition = userAnswer.equalsIgnoreCase("no")
-                    && userAnswer.equalsIgnoreCase(correctAnswer);
+            boolean evenSuccessCondition = userAnswer.equalsIgnoreCase(correctAnswer);
+            boolean oddSuccessCondition = userAnswer.equalsIgnoreCase(correctAnswer);
 
             if (evenSuccessCondition || oddSuccessCondition) {
                 Engine.rightAnswerForLevel();
                 levelCounter += 1;
-
             } else {
                 Engine.errorMessageForUser(userAnswer, correctAnswer, userName);
                 break;
