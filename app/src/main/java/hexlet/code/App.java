@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.CalcGame;
-import hexlet.code.games.EvenGame;
-import hexlet.code.games.GCDGame;
-import hexlet.code.games.ProgressionGame;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -13,22 +10,25 @@ public class App {
         int gameNumber = Engine.choosingGame(scanner);
 
         System.out.println("\nWelcome to the Brain Games!");
-        String userName = Cli.gettingName(scanner);
 
         switch (gameNumber) {
             case 1:
+                Cli.gettingName(scanner);
                 break;
             case 2:
-                EvenGame.determineEvenNumbers(scanner, userName);
+                EvenGame.determineEvenNumbers(scanner);
                 break;
             case 3:
-                CalcGame.calcNumbers(scanner, userName);
+                CalcGame.calcNumbers(scanner);
                 break;
             case 4:
-                GCDGame.gcdForNumbers(scanner, userName);
+                GCDGame.gcdForNumbers(scanner);
                 break;
             case 5:
-                ProgressionGame.improveProgression(scanner, userName);
+                ProgressionGame.improveProgression(scanner);
+                break;
+            case 6:
+                PrimeGame.determinePrimeNumbers(scanner);
                 break;
             default:
                 break;
