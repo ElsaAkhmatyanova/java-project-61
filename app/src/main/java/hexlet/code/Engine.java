@@ -16,7 +16,7 @@ public class Engine {
         String userGameChoice = scanner.nextLine();
         int userGame = Integer.parseInt(userGameChoice);
 
-        int[] listOfGames = new int[]{1, 2, 3, 4};
+        int[] listOfGames = new int[]{1, 2, 3, 4, 5};
         boolean isSelectedExistedGame = false;
 
         for (int i : listOfGames) {
