@@ -35,3 +35,13 @@
 Пример неуспешного прохождения игры:
 ![UnsuccessfulGCDGame.PNG](image/UnsuccessfulGCDGame.PNG)
 </details>
+
+<details>
+  <summary>4 - Progression. Игра: "Арифметическая прогрессия"</summary>
+
+Пример успешного прохождения игры:
+![SuccessfulProgressionGame.PNG](image/SuccessfulProgressionGame.PNG)
+
+Пример неуспешного прохождения игры:
+![UnsuccessfulProgressionGame.PNG](image/UnsuccessfulProgressionGame.PNG)
+</details>
