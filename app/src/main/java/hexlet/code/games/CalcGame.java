@@ -1,12 +1,14 @@
 package hexlet.code.games;
 
+import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class CalcGame {
-    public static void calcNumbers(Scanner scanner, String userName) {
+    public static void calcNumbers(Scanner scanner) {
+        String userName = Cli.gettingName(scanner);
         System.out.println("What is the result of the expression?");
 
         Random randomNumeric = new Random();

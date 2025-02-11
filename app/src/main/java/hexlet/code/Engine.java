@@ -11,16 +11,17 @@ public class Engine {
                 3 - Calc
                 4 - GCD
                 5 - Progression
+                6 - Prime
                 0 - Exit""");
         System.out.print("Your choice: ");
         String userGameChoice = scanner.nextLine();
         int userGame = Integer.parseInt(userGameChoice);
 
-        int[] listOfGames = new int[]{1, 2, 3, 4, 5};
+        int[] listOfGames = new int[]{1, 2, 3, 4, 5, 6};
         boolean isSelectedExistedGame = false;
 
         for (int i : listOfGames) {
-            if (i == userGame) {
+            if (userGame == i) {
                 isSelectedExistedGame = true;
                 break;
             }

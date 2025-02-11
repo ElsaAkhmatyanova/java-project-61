@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 import java.util.Random;
@@ -7,7 +8,8 @@ import java.util.Scanner;
 
 public class EvenGame {
 
-    public static void determineEvenNumbers(Scanner scanner, String userName) {
+    public static void determineEvenNumbers(Scanner scanner) {
+        String userName = Cli.gettingName(scanner);
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         Random randomNumeric = new Random();

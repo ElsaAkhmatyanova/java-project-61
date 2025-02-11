@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 import java.math.BigInteger;
@@ -7,7 +8,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GCDGame {
-    public static void gcdForNumbers(Scanner scanner, String userName) {
+    public static void gcdForNumbers(Scanner scanner) {
+        String userName = Cli.gettingName(scanner);
         System.out.println("Find the greatest common divisor of given numbers.");
 
         Random randomNumeric = new Random();
