@@ -20,18 +20,14 @@ public class App {
 
         String gameNumber = Engine.choosingGame();
 
-        if (gameNumber == null) {
-            System.out.println("The selected game does not exist.");
-            return;
-        }
-
+        if (gameNumber != null) {
         String[][] gameData = null;
         String gameTask = null;
 
         switch (gameNumber) {
             case "1":
                 Cli.greet();
-                break;
+                return;
             case "2":
                 gameTask = EvenGame.EVEN_MAIN_QUESTION;
                 gameData = EvenGame.generateEvenGameData();
@@ -53,9 +49,9 @@ public class App {
                 gameData = PrimeGame.generatePrimeGameData();
                 break;
             default:
-                break;
+                return;
         }
-
         Engine.runGame(gameTask, gameData);
+        }
     }
 }
