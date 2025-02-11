@@ -16,22 +16,22 @@ public class App {
         System.out.println("\nWelcome to the Brain Games!");
 
         switch (gameNumber) {
-            case 1:
+            case Engine.GREET:
                 Cli.gettingName(scanner);
                 break;
-            case 2:
+            case Engine.EVEN:
                 EvenGame.determineEvenNumbers(scanner);
                 break;
-            case 3:
+            case Engine.CALC:
                 CalcGame.calcNumbers(scanner);
                 break;
-            case 4:
+            case Engine.GCD:
                 GCDGame.gcdForNumbers(scanner);
                 break;
-            case 5:
+            case Engine.PROGRESSION:
                 ProgressionGame.improveProgression(scanner);
                 break;
-            case 6:
+            case Engine.PRIME:
                 PrimeGame.determinePrimeNumbers(scanner);
                 break;
             default:

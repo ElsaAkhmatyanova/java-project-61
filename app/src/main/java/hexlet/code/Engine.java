@@ -3,6 +3,14 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    protected static final int GREET = 1;
+    protected static final int EVEN = 2;
+    protected static final int CALC = 3;
+    protected static final int GCD = 4;
+    protected static final int PROGRESSION = 5;
+    protected static final int PRIME = 6;
+    protected static final int[] LIST_OF_GAMES = new int[]{GREET, EVEN, CALC, GCD, PROGRESSION, PRIME};
+
     public static int choosingGame(Scanner scanner) {
         System.out.println("""
                 Please enter the game number and press Enter.
@@ -17,10 +25,8 @@ public class Engine {
         String userGameChoice = scanner.nextLine();
         int userGame = Integer.parseInt(userGameChoice);
 
-        int[] listOfGames = new int[]{1, 2, 3, 4, 5, 6};
         boolean isSelectedExistedGame = false;
-
-        for (int i : listOfGames) {
+        for (int i : LIST_OF_GAMES) {
             if (userGame == i) {
                 isSelectedExistedGame = true;
                 break;
@@ -50,7 +56,8 @@ public class Engine {
     }
 
     public static void successfulGameMessage(String userName, int levelCounter) {
-        if (levelCounter == 3) {
+        int pointsToWin = 3;
+        if (levelCounter == pointsToWin) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
