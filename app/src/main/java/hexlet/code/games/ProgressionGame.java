@@ -7,18 +7,21 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ProgressionGame {
+    private static final int MIN_LENGTH = 5;
+    private static final int MAX_LENGTH = 10;
+    private static final int MIN_DIFFERENCE = 1;
+
+
     public static void improveProgression(Scanner scanner) {
         String userName = Cli.gettingName(scanner);
         System.out.println("What number is missing in the progression?");
 
         Random randomNumeric = new Random();
-
         int missingNumberIndex;
         int missingNumber;
         int levelCounter = 0;
-        int numberOfLevels = 3;
 
-        for (int i = 1; i <= numberOfLevels; i++) {
+        for (int i = 1; i <= Engine.NUMBER_OF_LEVELS; i++) {
             int[] progression = createProgression();
             missingNumberIndex = randomNumeric.nextInt(progression.length);
             missingNumber = progression[missingNumberIndex];
@@ -39,14 +42,9 @@ public class ProgressionGame {
 
     public static int[] createProgression() {
         Random randomNumeric = new Random();
-        int originValue = 5;
-        int boundValue = 10;
-        int originValueForDifference = 1;
-        int randomNumberRange = 20;
-
-        int[] progression = new int[randomNumeric.nextInt(originValue, boundValue)];
-        int difference = randomNumeric.nextInt(originValueForDifference, boundValue);
-        progression[0] = randomNumeric.nextInt(randomNumberRange);
+        int[] progression = new int[randomNumeric.nextInt(MIN_LENGTH, MAX_LENGTH)];
+        int difference = randomNumeric.nextInt(MIN_DIFFERENCE, MAX_LENGTH);
+        progression[0] = randomNumeric.nextInt(Engine.RANDOM_NUMBER_RANGE);
 
         for (int i = 1; i < progression.length; i++) {
             progression[i] = progression[i - 1] + difference;

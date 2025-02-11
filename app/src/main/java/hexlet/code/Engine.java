@@ -11,6 +11,10 @@ public class Engine {
     protected static final int PRIME = 6;
     protected static final int[] LIST_OF_GAMES = new int[]{GREET, EVEN, CALC, GCD, PROGRESSION, PRIME};
 
+    protected static final int POINTS_TO_WIN = 3;
+    public static final int NUMBER_OF_LEVELS = 3;
+    public static final int RANDOM_NUMBER_RANGE = 100;
+
     public static int choosingGame(Scanner scanner) {
         System.out.println("""
                 Please enter the game number and press Enter.
@@ -56,8 +60,7 @@ public class Engine {
     }
 
     public static void successfulGameMessage(String userName, int levelCounter) {
-        int pointsToWin = 3;
-        if (levelCounter == pointsToWin) {
+        if (levelCounter == POINTS_TO_WIN) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

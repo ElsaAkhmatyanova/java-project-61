@@ -12,19 +12,16 @@ public class CalcGame {
         System.out.println("What is the result of the expression?");
 
         Random randomNumeric = new Random();
-        int randomNumberRange = 100;
-
         StringBuilder randomOperation = new StringBuilder();
         String operationType = "+-*";
         int levelCounter = 0;
-        int numberOfLevels = 3;
         int firstNumber;
         int secondNumber;
         int correctAnswer;
 
-        for (int i = 1; i <= numberOfLevels; i++) {
-            firstNumber = randomNumeric.nextInt(randomNumberRange);
-            secondNumber = randomNumeric.nextInt(randomNumberRange);
+        for (int i = 1; i <= Engine.NUMBER_OF_LEVELS; i++) {
+            firstNumber = randomNumeric.nextInt(Engine.RANDOM_NUMBER_RANGE);
+            secondNumber = randomNumeric.nextInt(Engine.RANDOM_NUMBER_RANGE);
             randomOperation.append(operationType.charAt(randomNumeric.nextInt(operationType.length())));
 
             System.out.println("Question: " + firstNumber + " " + randomOperation + " " + secondNumber);
