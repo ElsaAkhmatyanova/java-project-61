@@ -13,11 +13,14 @@ public class PrimeGame {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         Random randomNumeric = new Random();
+        int randomNumberRange = 100;
+
         int numberForLevel;
         int levelCounter = 0;
+        int numberOfLevels = 3;
 
-        for (int i = 1; i < 4; i++) {
-            numberForLevel = randomNumeric.nextInt(100);
+        for (int i = 1; i <= numberOfLevels; i++) {
+            numberForLevel = randomNumeric.nextInt(randomNumberRange);
             System.out.println("Question: " + numberForLevel);
             String userAnswer = Engine.getGamerAnswer(scanner);
 

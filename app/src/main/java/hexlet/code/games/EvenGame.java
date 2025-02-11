@@ -13,11 +13,14 @@ public class EvenGame {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         Random randomNumeric = new Random();
+        int randomNumberRange = 1000;
+
         int numberForLevel;
         int levelCounter = 0;
+        int numberOfLevels = 3;
 
-        for (int i = 1; i < 4; i++) {
-            numberForLevel = randomNumeric.nextInt(1000);
+        for (int i = 1; i <= numberOfLevels; i++) {
+            numberForLevel = randomNumeric.nextInt(randomNumberRange);
             System.out.println("Question: " + numberForLevel);
             String userAnswer = Engine.getGamerAnswer(scanner);
 

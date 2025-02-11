@@ -13,12 +13,15 @@ public class GCDGame {
         System.out.println("Find the greatest common divisor of given numbers.");
 
         Random randomNumeric = new Random();
+        int randomNumberRange = 200;
+
         int levelCounter = 0;
+        int numberOfLevels = 3;
         int correctAnswer;
 
-        for (int i = 1; i < 4; i++) {
-            BigInteger firstNumber = BigInteger.valueOf(randomNumeric.nextInt(200));
-            BigInteger secondNumber = BigInteger.valueOf(randomNumeric.nextInt(200));
+        for (int i = 1; i <= numberOfLevels; i++) {
+            BigInteger firstNumber = BigInteger.valueOf(randomNumeric.nextInt(randomNumberRange));
+            BigInteger secondNumber = BigInteger.valueOf(randomNumeric.nextInt(randomNumberRange));
             correctAnswer = calculateGCDForNumbers(firstNumber, secondNumber);
 
             System.out.println("Question: " + firstNumber.intValue() + " " + secondNumber.intValue());
