@@ -1,38 +1,24 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class EvenGame {
+    public static final String EVEN_MAIN_QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void determineEvenNumbers(Scanner scanner) {
-        String userName = Cli.gettingName(scanner);
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
+    public static String[][] generateEvenGameData() {
+        String[][] gameData = new String[Engine.NUMBER_OF_LEVELS][2];
         Random randomNumeric = new Random();
-        int numberForLevel;
-        int levelCounter = 0;
 
-        for (int i = 1; i <= Engine.NUMBER_OF_LEVELS; i++) {
-            numberForLevel = randomNumeric.nextInt(Engine.RANDOM_NUMBER_RANGE);
-            System.out.println("Question: " + numberForLevel);
-            String userAnswer = Engine.getGamerAnswer(scanner);
+        for (int i = 0; i < Engine.NUMBER_OF_LEVELS; i++) {
+            int number = randomNumeric.nextInt(Engine.RANDOM_NUMBER_RANGE);
+            String question = String.valueOf(number);
+            String correctAnswer = (number % 2 == 0) ? "yes" : "no";
 
-            String correctAnswer = numberForLevel % 2 == 0 ? "yes" : "no";
-            boolean evenSuccessCondition = userAnswer.equalsIgnoreCase(correctAnswer);
-            boolean oddSuccessCondition = userAnswer.equalsIgnoreCase(correctAnswer);
-
-            if (evenSuccessCondition || oddSuccessCondition) {
-                Engine.rightAnswerForLevel();
-                levelCounter += 1;
-            } else {
-                Engine.errorMessageForUser(userAnswer, correctAnswer, userName);
-                break;
-            }
+            gameData[i][0] = question;
+            gameData[i][1] = correctAnswer;
         }
-        Engine.successfulGameMessage(userName, levelCounter);
+        return gameData;
     }
 }

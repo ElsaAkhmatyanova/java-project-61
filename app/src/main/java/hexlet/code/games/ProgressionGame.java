@@ -1,43 +1,31 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class ProgressionGame {
+    public static final String PROGRESSION_MAIN_QUESTION = "What number is missing in the progression?";
     private static final int MIN_LENGTH = 5;
     private static final int MAX_LENGTH = 10;
     private static final int MIN_DIFFERENCE = 1;
 
-
-    public static void improveProgression(Scanner scanner) {
-        String userName = Cli.gettingName(scanner);
-        System.out.println("What number is missing in the progression?");
-
+    public static String[][] generateProgressionGameData() {
+        String[][] gameData = new String[Engine.NUMBER_OF_LEVELS][2];
         Random randomNumeric = new Random();
         int missingNumberIndex;
-        int missingNumber;
-        int levelCounter = 0;
 
-        for (int i = 1; i <= Engine.NUMBER_OF_LEVELS; i++) {
+        for (int i = 0; i < Engine.NUMBER_OF_LEVELS; i++) {
             int[] progression = createProgression();
             missingNumberIndex = randomNumeric.nextInt(progression.length);
-            missingNumber = progression[missingNumberIndex];
 
-            System.out.println("Question: " + skipProgressionGenerator(progression, missingNumberIndex));
-            String userAnswer = Engine.getGamerAnswer(scanner);
+            String question = skipProgressionGenerator(progression, missingNumberIndex);
+            String correctAnswer = String.valueOf(progression[missingNumberIndex]);
 
-            if (Integer.parseInt(userAnswer) == missingNumber) {
-                Engine.rightAnswerForLevel();
-                levelCounter += 1;
-            } else {
-                Engine.errorMessageForUser(userAnswer, String.valueOf(missingNumber), userName);
-                break;
-            }
+            gameData[i][0] = question;
+            gameData[i][1] = correctAnswer;
         }
-        Engine.successfulGameMessage(userName, levelCounter);
+        return gameData;
     }
 
     public static int[] createProgression() {
@@ -63,6 +51,4 @@ public class ProgressionGame {
         }
         return skipProgression.toString();
     }
-
-
 }

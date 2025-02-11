@@ -3,66 +3,56 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    protected static final int GREET = 1;
-    protected static final int EVEN = 2;
-    protected static final int CALC = 3;
-    protected static final int GCD = 4;
-    protected static final int PROGRESSION = 5;
-    protected static final int PRIME = 6;
-    protected static final int[] LIST_OF_GAMES = new int[]{GREET, EVEN, CALC, GCD, PROGRESSION, PRIME};
+    protected static final String[] LIST_OF_GAMES = new String[]{"1", "2", "3", "4", "5", "6"};
 
-    protected static final int POINTS_TO_WIN = 3;
     public static final int NUMBER_OF_LEVELS = 3;
     public static final int RANDOM_NUMBER_RANGE = 100;
 
-    public static int choosingGame(Scanner scanner) {
-        System.out.println("""
-                Please enter the game number and press Enter.
-                1 - Greet
-                2 - Even
-                3 - Calc
-                4 - GCD
-                5 - Progression
-                6 - Prime
-                0 - Exit""");
+    public static String choosingGame() {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.print("Your choice: ");
         String userGameChoice = scanner.nextLine();
-        int userGame = Integer.parseInt(userGameChoice);
 
         boolean isSelectedExistedGame = false;
-        for (int i : LIST_OF_GAMES) {
-            if (userGame == i) {
+        for (String i : LIST_OF_GAMES) {
+            if (userGameChoice.equalsIgnoreCase(i)) {
                 isSelectedExistedGame = true;
                 break;
             }
         }
 
         if (isSelectedExistedGame) {
-            return Integer.parseInt(userGameChoice);
+            return userGameChoice;
         } else {
-            System.out.println("No input provided!");
-            return 0;
+            return null;
         }
     }
 
-    public static String getGamerAnswer(Scanner scanner) {
-        System.out.print("Your answer: ");
-        return scanner.nextLine();
-    }
+    public static void runGame(String gameTask, String[][] gameData) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nWelcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println(gameTask);
 
-    public static void errorMessageForUser(String userAnswer, String correctAnswer, String userName) {
-        System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                + correctAnswer + "'.\nLet's try again, " + userName + "!");
-    }
+        for (String[] levelData : gameData) {
+            String question = levelData[0];
+            String correctAnswer = levelData[1];
 
-    public static void rightAnswerForLevel() {
-        System.out.println("Correct!");
-    }
+            System.out.println("Question: " + question);
+            String userAnswer = scanner.nextLine();
 
-    public static void successfulGameMessage(String userName, int levelCounter) {
-        if (levelCounter == POINTS_TO_WIN) {
-            System.out.println("Congratulations, " + userName + "!");
+            if (!userAnswer.equalsIgnoreCase(correctAnswer)) {
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'.");
+                System.out.println("Let's try again, " + userName + "!");
+                return;
+            }
+            System.out.println("Correct!");
         }
+        scanner.close();
+        System.out.println("Congratulations, " + userName + "!");
     }
-
 }

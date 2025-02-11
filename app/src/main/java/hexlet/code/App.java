@@ -6,38 +6,50 @@ import hexlet.code.games.GCDGame;
 import hexlet.code.games.PrimeGame;
 import hexlet.code.games.ProgressionGame;
 
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int gameNumber = Engine.choosingGame(scanner);
+        System.out.println("""
+                Please enter the game number and press Enter.
+                1 - Greet
+                2 - Even
+                3 - Calc
+                4 - GCD
+                5 - Progression
+                6 - Prime
+                0 - Exit""");
 
-        System.out.println("\nWelcome to the Brain Games!");
+        String gameNumber = Engine.choosingGame();
+
+        String[][] gameData;
+        String gameTask;
 
         switch (gameNumber) {
-            case Engine.GREET:
-                Cli.gettingName(scanner);
+            case "1":
+                Cli.greet();
+                return;
+            case "2":
+                gameTask = EvenGame.EVEN_MAIN_QUESTION;
+                gameData = EvenGame.generateEvenGameData();
+            case "3":
+                gameTask = CalcGame.CALC_MAIN_QUESTION;
+                gameData = CalcGame.generateCalcGameData();
                 break;
-            case Engine.EVEN:
-                EvenGame.determineEvenNumbers(scanner);
+            case "4":
+                gameTask = GCDGame.GCD_MAIN_QUESTION;
+                gameData = GCDGame.generateGCDGameData();
                 break;
-            case Engine.CALC:
-                CalcGame.calcNumbers(scanner);
+            case "5":
+                gameTask = ProgressionGame.PROGRESSION_MAIN_QUESTION;
+                gameData = ProgressionGame.generateProgressionGameData();
                 break;
-            case Engine.GCD:
-                GCDGame.gcdForNumbers(scanner);
-                break;
-            case Engine.PROGRESSION:
-                ProgressionGame.improveProgression(scanner);
-                break;
-            case Engine.PRIME:
-                PrimeGame.determinePrimeNumbers(scanner);
+            case "6":
+                gameTask = PrimeGame.PRIME_MAIN_QUESTION;
+                gameData = PrimeGame.generatePrimeGameData();
                 break;
             default:
-                break;
+                return;
         }
 
-        scanner.close();
+        Engine.runGame(gameTask, gameData);
     }
 }
