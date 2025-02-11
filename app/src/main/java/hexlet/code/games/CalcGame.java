@@ -19,7 +19,6 @@ public class CalcGame {
         int secondNumber;
         int correctAnswer;
 
-
         for (int i = 1; i < 4; i++) {
             firstNumber = randomNumeric.nextInt(100);
             secondNumber = randomNumeric.nextInt(100);
@@ -40,7 +39,6 @@ public class CalcGame {
             if (Integer.parseInt(userAnswer) == correctAnswer) {
                 Engine.rightAnswerForLevel();
                 levelCounter += 1;
-
             } else {
                 Engine.errorMessageForUser(userAnswer, String.valueOf(correctAnswer), userName);
                 break;
