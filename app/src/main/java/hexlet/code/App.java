@@ -20,16 +20,17 @@ public class App {
 
         String gameNumber = Engine.choosingGame();
 
-        String[][] gameData;
-        String gameTask;
+        String[][] gameData = null;
+        String gameTask = null;
 
         switch (gameNumber) {
             case "1":
                 Cli.greet();
-                return;
+                break;
             case "2":
                 gameTask = EvenGame.EVEN_MAIN_QUESTION;
                 gameData = EvenGame.generateEvenGameData();
+                break;
             case "3":
                 gameTask = CalcGame.CALC_MAIN_QUESTION;
                 gameData = CalcGame.generateCalcGameData();
@@ -47,7 +48,7 @@ public class App {
                 gameData = PrimeGame.generatePrimeGameData();
                 break;
             default:
-                return;
+                break;
         }
 
         Engine.runGame(gameTask, gameData);
