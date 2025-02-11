@@ -25,15 +25,13 @@ public class Engine {
         if (isSelectedExistedGame) {
             return userGameChoice;
         } else {
-            System.out.println("The selected game does not exist.");
             return null;
         }
     }
 
     public static void runGame(String gameTask, String[][] gameData) {
-        if (gameData == null || gameTask == null) {
-            System.out.println("The selected game does not exist.");
-        }
+
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");

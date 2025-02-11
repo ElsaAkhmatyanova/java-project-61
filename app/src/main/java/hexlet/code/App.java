@@ -20,6 +20,11 @@ public class App {
 
         String gameNumber = Engine.choosingGame();
 
+        if (gameNumber == null) {
+            System.out.println("The selected game does not exist.");
+            return;
+        }
+
         String[][] gameData = null;
         String gameTask = null;
 
