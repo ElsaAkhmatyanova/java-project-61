@@ -3,7 +3,7 @@ package hexlet.code.common;
 import java.util.Random;
 
 public class Utils {
-    static Random randomNumeric = new Random();
+    private static final Random randomNumeric = new Random();
 
     public static int generateRandomNumber(int min, int max) {
         return randomNumeric.nextInt(min, max);
