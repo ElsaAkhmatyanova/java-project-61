@@ -1,13 +1,18 @@
 package hexlet.code;
 
+import hexlet.code.common.Constants;
 import hexlet.code.games.CalcGame;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.GCDGame;
 import hexlet.code.games.PrimeGame;
 import hexlet.code.games.ProgressionGame;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("""
                 Please enter the game number and press Enter.
                 1 - Greet
@@ -17,41 +22,41 @@ public class App {
                 5 - Progression
                 6 - Prime
                 0 - Exit""");
+        System.out.print("Your choice: ");
+        String userGameChoice = scanner.nextLine();
 
-        String gameNumber = Engine.choosingGame();
-
-        if (gameNumber != null) {
-            String[][] gameData;
-            String gameTask;
-
-            switch (gameNumber) {
-                case "1":
-                    Cli.greet();
-                    return;
-                case "2":
-                    gameTask = EvenGame.EVEN_MAIN_QUESTION;
-                    gameData = EvenGame.generateEvenGameData();
-                    break;
-                case "3":
-                    gameTask = CalcGame.CALC_MAIN_QUESTION;
-                    gameData = CalcGame.generateCalcGameData();
-                    break;
-                case "4":
-                    gameTask = GCDGame.GCD_MAIN_QUESTION;
-                    gameData = GCDGame.generateGCDGameData();
-                    break;
-                case "5":
-                    gameTask = ProgressionGame.PROGRESSION_MAIN_QUESTION;
-                    gameData = ProgressionGame.generateProgressionGameData();
-                    break;
-                case "6":
-                    gameTask = PrimeGame.PRIME_MAIN_QUESTION;
-                    gameData = PrimeGame.generatePrimeGameData();
-                    break;
-                default:
-                    return;
+        boolean isSelectedExistedGame = false;
+        for (String i : Constants.LIST_OF_GAMES) {
+            if (userGameChoice.equalsIgnoreCase(i)) {
+                isSelectedExistedGame = true;
+                break;
             }
-            Engine.runGame(gameTask, gameData);
+        }
+        if (!isSelectedExistedGame) {
+            userGameChoice = null;
+        }
+
+        switch (userGameChoice) {
+            case "1":
+                Cli.greet();
+                return;
+            case "2":
+                EvenGame.launchingEvenGame();
+                break;
+            case "3":
+                CalcGame.launchingCalcGame();
+                break;
+            case "4":
+                GCDGame.launchingGCDGame();
+                break;
+            case "5":
+                ProgressionGame.launchingProgressionGame();
+                break;
+            case "6":
+                PrimeGame.launchingPrimeGame();
+                break;
+            case null, default:
+                break;
         }
     }
 }

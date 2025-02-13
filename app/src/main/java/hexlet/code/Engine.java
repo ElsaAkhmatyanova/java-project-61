@@ -3,31 +3,6 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    protected static final String[] LIST_OF_GAMES = new String[]{"1", "2", "3", "4", "5", "6"};
-
-    public static final int NUMBER_OF_LEVELS = 3;
-    public static final int RANDOM_NUMBER_RANGE = 100;
-
-    public static String choosingGame() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Your choice: ");
-        String userGameChoice = scanner.nextLine();
-
-        boolean isSelectedExistedGame = false;
-        for (String i : LIST_OF_GAMES) {
-            if (userGameChoice.equalsIgnoreCase(i)) {
-                isSelectedExistedGame = true;
-                break;
-            }
-        }
-
-        if (isSelectedExistedGame) {
-            return userGameChoice;
-        } else {
-            return null;
-        }
-    }
 
     public static void runGame(String gameTask, String[][] gameData) {
         Scanner scanner = new Scanner(System.in);
