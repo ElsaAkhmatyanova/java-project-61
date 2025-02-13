@@ -1,22 +1,21 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.common.Constants;
+import hexlet.code.common.Utils;
 
 public class CalcGame {
     public static final String CALC_MAIN_QUESTION = "What is the result of the expression?";
 
-    public static String[][] generateCalcGameData() {
-        String[][] gameData = new String[Engine.NUMBER_OF_LEVELS][2];
-        Random randomNumeric = new Random();
+    public static void launchingCalcGame() {
+        String[][] gameData = new String[Constants.NUMBER_OF_LEVELS][2];
         StringBuilder randomOperation = new StringBuilder();
         String operationType = "+-*";
 
-        for (int i = 0; i < Engine.NUMBER_OF_LEVELS; i++) {
-            int firstNumber = randomNumeric.nextInt(Engine.RANDOM_NUMBER_RANGE);
-            int secondNumber = randomNumeric.nextInt(Engine.RANDOM_NUMBER_RANGE);
-            randomOperation.append(operationType.charAt(randomNumeric.nextInt(operationType.length())));
+        for (int i = 0; i < Constants.NUMBER_OF_LEVELS; i++) {
+            int firstNumber = Utils.generateDefaultRandomNumber();
+            int secondNumber = Utils.generateDefaultRandomNumber();
+            randomOperation.append(operationType.charAt(Utils.generateRandomNumber(operationType.length())));
 
             String question = firstNumber + " " + randomOperation + " " + secondNumber;
             String correctAnswer;
@@ -34,6 +33,6 @@ public class CalcGame {
 
             randomOperation.deleteCharAt(0);
         }
-        return gameData;
+        Engine.runGame(CALC_MAIN_QUESTION, gameData);
     }
 }

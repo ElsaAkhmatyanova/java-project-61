@@ -1,8 +1,8 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.common.Constants;
+import hexlet.code.common.Utils;
 
 public class ProgressionGame {
     public static final String PROGRESSION_MAIN_QUESTION = "What number is missing in the progression?";
@@ -10,14 +10,13 @@ public class ProgressionGame {
     private static final int MAX_LENGTH = 10;
     private static final int MIN_DIFFERENCE = 1;
 
-    public static String[][] generateProgressionGameData() {
-        String[][] gameData = new String[Engine.NUMBER_OF_LEVELS][2];
-        Random randomNumeric = new Random();
+    public static void launchingProgressionGame() {
+        String[][] gameData = new String[Constants.NUMBER_OF_LEVELS][2];
         int missingNumberIndex;
 
-        for (int i = 0; i < Engine.NUMBER_OF_LEVELS; i++) {
+        for (int i = 0; i < Constants.NUMBER_OF_LEVELS; i++) {
             int[] progression = createProgression();
-            missingNumberIndex = randomNumeric.nextInt(progression.length);
+            missingNumberIndex = Utils.generateRandomNumber(progression.length);
 
             String question = skipProgressionGenerator(progression, missingNumberIndex);
             String correctAnswer = String.valueOf(progression[missingNumberIndex]);
@@ -25,14 +24,13 @@ public class ProgressionGame {
             gameData[i][0] = question;
             gameData[i][1] = correctAnswer;
         }
-        return gameData;
+        Engine.runGame(PROGRESSION_MAIN_QUESTION, gameData);
     }
 
     public static int[] createProgression() {
-        Random randomNumeric = new Random();
-        int[] progression = new int[randomNumeric.nextInt(MIN_LENGTH, MAX_LENGTH)];
-        int difference = randomNumeric.nextInt(MIN_DIFFERENCE, MAX_LENGTH);
-        progression[0] = randomNumeric.nextInt(Engine.RANDOM_NUMBER_RANGE);
+        int[] progression = new int[Utils.generateRandomNumber(MIN_LENGTH, MAX_LENGTH)];
+        int difference = Utils.generateRandomNumber(MIN_DIFFERENCE, MAX_LENGTH);
+        progression[0] = Utils.generateDefaultRandomNumber();
 
         for (int i = 1; i < progression.length; i++) {
             progression[i] = progression[i - 1] + difference;
