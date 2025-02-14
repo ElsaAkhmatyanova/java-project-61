@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.common.Constants;
 import hexlet.code.games.CalcGame;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.GCDGame;
@@ -25,17 +24,6 @@ public class App {
         System.out.print("Your choice: ");
         String userGameChoice = scanner.nextLine();
 
-        boolean isSelectedExistedGame = false;
-        for (String i : Constants.LIST_OF_GAMES) {
-            if (userGameChoice.equalsIgnoreCase(i)) {
-                isSelectedExistedGame = true;
-                break;
-            }
-        }
-        if (!isSelectedExistedGame) {
-            userGameChoice = null;
-        }
-
         switch (userGameChoice) {
             case "1":
                 Cli.greet();
@@ -55,7 +43,7 @@ public class App {
             case "6":
                 PrimeGame.launchingPrimeGame();
                 break;
-            case null, default:
+            default:
                 break;
         }
     }

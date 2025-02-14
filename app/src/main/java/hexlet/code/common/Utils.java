@@ -12,11 +12,4 @@ public class Utils {
     public static int generateRandomNumber(int max) {
         return RANDOM_NUMERIC.nextInt(max);
     }
-
-    public static int generateDefaultRandomNumber() {
-        return RANDOM_NUMERIC.nextInt(Constants.DEFAULT_RANDOM_NUMBER_RANGE);
-    }
-
-
-
 }

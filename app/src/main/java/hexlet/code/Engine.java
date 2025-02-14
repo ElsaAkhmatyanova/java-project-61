@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Engine {
 
+    public static final int NUMBER_OF_LEVELS = 3;
+
     public static void runGame(String gameTask, String[][] gameData) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWelcome to the Brain Games!");
