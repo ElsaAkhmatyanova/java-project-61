@@ -12,14 +12,19 @@ public class ProgressionGame {
 
     public static void launchingProgressionGame() {
         String[][] gameData = new String[Engine.NUMBER_OF_LEVELS][2];
-        int missingNumberIndex;
+        int hiddenMemberIndex;
 
         for (int i = 0; i < Engine.NUMBER_OF_LEVELS; i++) {
-            int[] progression = createProgression();
-            missingNumberIndex = Utils.generateRandomNumber(progression.length);
+            int firstValue = Utils.generateRandomNumber(DEFAULT_RANDOM_NUMBER_RANGE);
+            int stepValue = Utils.generateRandomNumber(MIN_DIFFERENCE, MAX_LENGTH);
+            int progressionLength = Utils.generateRandomNumber(MIN_LENGTH, MAX_LENGTH);
+            String[] progression = createProgression(firstValue, stepValue, progressionLength);
 
-            String question = skipProgressionGenerator(progression, missingNumberIndex);
-            String correctAnswer = String.valueOf(progression[missingNumberIndex]);
+            hiddenMemberIndex = Utils.generateRandomNumber(progression.length);
+            String correctAnswer = progression[hiddenMemberIndex];
+
+            progression[hiddenMemberIndex] = "..";
+            String question = String.join(" ", progression);
 
             gameData[i][0] = question;
             gameData[i][1] = correctAnswer;
@@ -27,26 +32,11 @@ public class ProgressionGame {
         Engine.runGame(PROGRESSION_MAIN_QUESTION, gameData);
     }
 
-    public static int[] createProgression() {
-        int[] progression = new int[Utils.generateRandomNumber(MIN_LENGTH, MAX_LENGTH)];
-        int difference = Utils.generateRandomNumber(MIN_DIFFERENCE, MAX_LENGTH);
-        progression[0] = Utils.generateRandomNumber(DEFAULT_RANDOM_NUMBER_RANGE);
-
-        for (int i = 1; i < progression.length; i++) {
-            progression[i] = progression[i - 1] + difference;
+    public static String[] createProgression(int first, int step, int length) {
+        String[] progression = new String[length];
+        for (int i = 0; i < length; i += 1) {
+            progression[i] = Integer.toString(first + i * step);
         }
         return progression;
-    }
-
-    public static String skipProgressionGenerator(int[] progression, int index) {
-        StringBuilder skipProgression = new StringBuilder();
-        for (int i = 0; i < progression.length; i++) {
-            if (i != index) {
-                skipProgression.append(progression[i]).append(" ");
-            } else {
-                skipProgression.append("..").append(" ");
-            }
-        }
-        return skipProgression.toString();
     }
 }
